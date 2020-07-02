@@ -1,4 +1,15 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.board {
+  min-width: 100px;
+  min-height: 200px;
+  height: 500px;
+  width: 300px;
+  background-color: crimson;
 }
