@@ -51,8 +51,8 @@ const button = [
     title: "="
   },
   {
-    id: 1,
-    title: "1"
+    id: "decimal",
+    title: "."
   },
   {
     id: "plus",
@@ -77,7 +77,11 @@ export class Grid extends Component {
     return (
       <div id="grid">
         {button.map(button => {
-          return <button id={button.id}>{button.title}</button>;
+          return (
+            <button key={button.id} id={button.id}>
+              {button.title}
+            </button>
+          );
         })}
       </div>
     );

@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 
 export class Display extends Component {
+  state = {
+    title: "123"
+  };
+
   render() {
-    return <div style={displayStyle} />;
+    return <div style={displayStyle}>{this.state.title}</div>;
   }
 }
 

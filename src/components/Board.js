@@ -4,11 +4,13 @@ import Display from "./Display";
 import Grid from "./Grid/Grid";
 
 export class Board extends Component {
+  changeDisplay(title) {}
+
   render() {
     return (
       <div className="board">
         <Formula />
-        <Display />
+        <Display changeDisplay={this.changeDisplay()} />
         <Grid />
       </div>
     );
