@@ -7,8 +7,8 @@
 button {
   border: 3px solid cyan;
 }
-button::after {
-  transform: translateY(40px);
+button::hover {
+  background-color: red;
 }
 
 #clear {
