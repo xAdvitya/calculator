@@ -133,6 +133,7 @@ export class Board extends Component {
   togglenextArth = () => {
     this.setState({ nextArth: true });
   };
+
   changeDisplay = id => {
     if (id === "clear") {
       this.setState({ displayTitle: "", displayFormula: "" });
@@ -144,6 +145,15 @@ export class Board extends Component {
     } else if (id === "decimal") {
       this.togglenextArth();
       this.handelDecimal();
+    } else if (id === "equal") {
+      this.setState({
+        displayFormula: this.state.displayFormula + this.state.displayTitle
+      });
+      console.log(this.state.displayFormula);
+
+      // bug state not changing
+      //  const res = eval(this.state.displayFormula);
+      this.setState({ displayTitle: 10 });
     }
   };
 
