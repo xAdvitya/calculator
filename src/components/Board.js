@@ -77,44 +77,65 @@ export class Board extends Component {
     ],
     displayTitle: "",
     displayFormula: "",
-    nextArth: true
+    nextArth: true,
+    overwrite: true
   };
 
   handelArthmetics = id => {
     if (id === "plus") {
-      if (this.state.nextArth) {
+      if (this.state.nextArth && this.state.overwrite) {
         this.setState({
           displayFormula:
-            this.state.displayFormula + this.state.displayTitle + "+"
+            this.state.displayFormula + this.state.displayTitle + "+",
+          displayTitle: "+"
         });
-        this.setState({ displayTitle: "+" });
+      } else {
+        this.setState({
+          displayFormula: this.state.displayTitle + "+",
+          displayTitle: "+"
+        });
       }
     } else if (id === "minus") {
-      if (this.state.nextArth) {
+      if (this.state.nextArth && this.state.overwrite) {
         this.setState({
           displayFormula:
-            this.state.displayFormula + this.state.displayTitle + "-"
+            this.state.displayFormula + this.state.displayTitle + "-",
+          displayTitle: "-"
         });
-        this.setState({ displayTitle: "-" });
+      } else {
+        this.setState({
+          displayFormula: this.state.displayTitle + "-",
+          displayTitle: "-"
+        });
       }
     } else if (id === "multiply") {
-      if (this.state.nextArth) {
+      if (this.state.nextArth && this.state.overwrite) {
         this.setState({
           displayFormula:
-            this.state.displayFormula + this.state.displayTitle + "*"
+            this.state.displayFormula + this.state.displayTitle + "*",
+          displayTitle: "*"
         });
-        this.setState({ displayTitle: "*" });
+      } else {
+        this.setState({
+          displayFormula: this.state.displayTitle + "*",
+          displayTitle: "*"
+        });
       }
     } else if (id === "divide") {
-      if (this.state.nextArth) {
+      if (this.state.nextArth && this.state.overwrite) {
         this.setState({
           displayFormula:
-            this.state.displayFormula + this.state.displayTitle + "/"
+            this.state.displayFormula + this.state.displayTitle + "/",
+          displayTitle: "/"
         });
-        this.setState({ displayTitle: "/" });
+      } else {
+        this.setState({
+          displayFormula: this.state.displayTitle + "/",
+          displayTitle: "/"
+        });
       }
     }
-    this.setState({ nextArth: false });
+    this.setState({ nextArth: false, overwrite: true });
   };
 
   handelNumbers = id => {
@@ -146,14 +167,16 @@ export class Board extends Component {
       this.togglenextArth();
       this.handelDecimal();
     } else if (id === "equal") {
-      this.setState({
-        displayFormula: this.state.displayFormula + this.state.displayTitle
-      });
-      console.log(this.state.displayFormula);
-
-      // bug state not changing
-      //  const res = eval(this.state.displayFormula);
-      this.setState({ displayTitle: 10 });
+      this.setState(
+        {
+          displayFormula: this.state.displayFormula + this.state.displayTitle,
+          overwrite: false
+        },
+        () => {
+          const res = eval(this.state.displayFormula);
+          this.setState({ displayTitle: res });
+        }
+      );
     }
   };
 
