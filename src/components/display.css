@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+#display {
+  background-color: black;
+  height: 40px;
+  width: 300px;
+  color: white;
+}
+
 #display > p {
   text-align: end;
   margin: 0 5px 0 0;
