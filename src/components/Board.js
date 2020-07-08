@@ -161,16 +161,21 @@ export class Board extends Component {
   toggleOverwrite = () => {
     this.setState({ overwrite: true });
   };
+  evaluation = () => {
+    try {
+      const res = eval(this.state.displayFormula);
+      this.setState({ displayTitle: res });
+    } catch {
+      this.setState({ displayTitle: "Incorrect Input" });
+    }
+  };
   handelEqual = () => {
     this.setState(
       {
         displayFormula: this.state.displayFormula + this.state.displayTitle,
         overwrite: false
       },
-      () => {
-        const res = eval(this.state.displayFormula);
-        this.setState({ displayTitle: res });
-      }
+      this.evaluation
     );
   };
 
