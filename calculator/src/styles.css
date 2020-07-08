@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    to left bottom,
+    #812753,
+    #705698,
+    #3083be,
+    #00a8bf,
+    #6ac6ad
+  );
+}
+#flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.board {
+  min-width: 100px;
+  min-height: 200px;
+  height: 500px;
+  width: 300px;
+}
+
+@media only screen and (max-width: 600px) {
+  .board {
+    margin-left: 50px;
+  }
+}
