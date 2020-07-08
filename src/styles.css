@@ -1,4 +1,23 @@
 body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    to right top,
+    #ff2ca4,
+    #f000b2,
+    #dc00c2,
+    #bf00d4,
+    #9700e6,
+    #7249f6,
+    #4766fe,
+    #007bff,
+    #00a3ff,
+    #00c5ff,
+    #00e2ff,
+    #5ffbf1
+  );
+}
+#flex {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,5 +30,10 @@ body {
   min-height: 200px;
   height: 500px;
   width: 300px;
-  background-color: crimson;
+}
+
+@media only screen and (max-width: 600px) {
+  .board {
+    margin-left: 50px;
+  }
 }
