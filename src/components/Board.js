@@ -147,36 +147,52 @@ export class Board extends Component {
   };
 
   handelDecimal = () => {
-    if (!this.state.displayTitle.includes(".")) {
+    if (
+      !String(this.state.displayTitle).includes(".") &&
+      this.state.overwrite
+    ) {
       this.setState({ displayTitle: this.state.displayTitle + "." });
+    } else {
     }
   };
   togglenextArth = () => {
     this.setState({ nextArth: true });
   };
+  toggleOverwrite = () => {
+    this.setState({ overwrite: true });
+  };
+  handelEqual = () => {
+    this.setState(
+      {
+        displayFormula: this.state.displayFormula + this.state.displayTitle,
+        overwrite: false
+      },
+      () => {
+        const res = eval(this.state.displayFormula);
+        this.setState({ displayTitle: res });
+      }
+    );
+  };
 
   changeDisplay = id => {
     if (id === "clear") {
       this.setState({ displayTitle: "", displayFormula: "" });
+      this.togglenextArth();
+      this.toggleOverwrite();
     } else if (["plus", "minus", "multiply", "divide"].includes(id)) {
       this.handelArthmetics(id);
     } else if (!isNaN(parseInt(id, 0)) || id === "zero") {
-      this.togglenextArth();
-      id === "zero" ? this.handelNumbers(0) : this.handelNumbers(id);
+      if (this.state.overwrite) {
+        this.togglenextArth();
+        id === "zero" ? this.handelNumbers(0) : this.handelNumbers(id);
+      }
     } else if (id === "decimal") {
       this.togglenextArth();
       this.handelDecimal();
     } else if (id === "equal") {
-      this.setState(
-        {
-          displayFormula: this.state.displayFormula + this.state.displayTitle,
-          overwrite: false
-        },
-        () => {
-          const res = eval(this.state.displayFormula);
-          this.setState({ displayTitle: res });
-        }
-      );
+      if (this.state.overwrite) {
+        this.handelEqual();
+      }
     }
   };
 

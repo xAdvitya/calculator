@@ -4,7 +4,10 @@ import "./header.css";
 function Header() {
   return (
     <div id="header">
-      <i className="fa fa-github" /> Calculator
+      <a href="https://github.com/Advitya-sharma/Calculator">
+        <i className="fa fa-github" />
+      </a>{" "}
+      Calculator
     </div>
   );
 }

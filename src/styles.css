@@ -2,19 +2,12 @@ body {
   margin: 0;
   padding: 0;
   background-image: linear-gradient(
-    to right top,
-    #ff2ca4,
-    #f000b2,
-    #dc00c2,
-    #bf00d4,
-    #9700e6,
-    #7249f6,
-    #4766fe,
-    #007bff,
-    #00a3ff,
-    #00c5ff,
-    #00e2ff,
-    #5ffbf1
+    to left bottom,
+    #812753,
+    #705698,
+    #3083be,
+    #00a8bf,
+    #6ac6ad
   );
 }
 #flex {
