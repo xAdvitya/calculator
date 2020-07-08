@@ -20,8 +20,12 @@
 
 @media only screen and (max-width: 600px) {
   #header {
-    font-size: 70px;
-    width: 60px;
-    line-height: 50px;
+    font-size: 29px;
+    width: 42px;
+    line-height: 30px;
+  }
+  .fa-github {
+    font-size: 40px;
+    transform: rotate(90deg);
   }
 }
